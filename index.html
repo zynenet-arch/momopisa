@@ -99,9 +99,10 @@
         /* ============ GIANT TEDDY BEAR ============ */
         .teddy-wrapper {
             position: fixed;
-            top: 50%;
+            top: 54%;
             left: 50%;
             transform: translate(-50%, -50%);
+            max-height: 95vh;
             z-index: 8;
             display: flex;
             flex-direction: column;
@@ -172,7 +173,7 @@
         .teddy-paw-right {
             position: absolute;
             right: clamp(-80px, -12vw, -120px);
-            top: 50%;
+            top: 46%; /* 👈 move paw up */
             transform: translateY(-50%) rotate(-25deg) scaleX(-1);
             font-size: clamp(50px, 10vw, 100px);
             z-index: 11;
