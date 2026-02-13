@@ -1954,17 +1954,19 @@
         });
 
         // Try autoplay first
-        music.currentTime = startTime;
-        music.play().then(() => {
-            isMusicPlaying = true;
-            hasMusicInteracted = true;
-            updateMusicButton();
-            removeInteractionListeners();
-        }).catch((err) => {
-            console.log('🎵 Autoplay blocked:', err.message);
-            console.log('🎵 Waiting for interaction to play music...');
-            addInteractionListeners();
-        });
+        // AUTOPLAY MUSIC ON PAGE LOAD (after navigation from index.html)
+window.addEventListener('load', () => {
+    music.currentTime = startTime;
+    music.play().then(() => {
+        isMusicPlaying = true;
+        hasMusicInteracted = true;
+        updateMusicButton();
+        console.log('🎵 Music autoplayed successfully');
+    }).catch(err => {
+        console.log('🎵 Autoplay blocked:', err);
+    });
+});
+
 
         // Handle page visibility (pause when tab hidden)
         document.addEventListener('visibilitychange', () => {
