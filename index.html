@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
-    <title>💕 A Special Question For Momo 💕</title>
+    <title>💕 A Specia11 Question For Momo 💕</title>
     <style>
         * {
             margin: 0;
@@ -99,25 +99,25 @@
         /* ============ GIANT TEDDY BEAR ============ */
         .teddy-wrapper {
             position: fixed;
-            top: 54%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-height: 95vh;
-            z-index: 8;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: teddy-wiggle 3s ease-in-out infinite;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.92); /* 👈 shrink everything */
+    z-index: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: teddy-wiggle 3s ease-in-out infinite;
         }
 
         @keyframes teddy-wiggle {
-            0%, 100% { 
-                transform: translate(-50%, -50%) rotate(-1deg); 
-            }
-            50% { 
-                transform: translate(-50%, -50%) rotate(1deg); 
-            }
-        }
+    0%, 100% { 
+        transform: translate(-50%, -50%) scale(0.92) rotate(-1deg); 
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(0.92) rotate(1deg); 
+    }
+}
+
 
         /* Teddy Head - Giant */
         .teddy-head {
@@ -263,7 +263,7 @@
             z-index: 10;
             animation: card-appear 1s ease-out;
             max-width: min(95vw, 650px);
-            max-height: 75vh; 
+            max-height: 70vh; 
             overflow-y: auto;
         }
 
