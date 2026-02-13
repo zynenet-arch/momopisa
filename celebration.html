@@ -70,6 +70,37 @@
             50% { transform: translateY(0) rotate(0deg); }
             75% { transform: translateY(30px) rotate(-10deg); }
         }
+        /* ===== Gift Image Popup ===== */
+.gift-image {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 20px;
+    margin: 20px auto 15px;
+    display: block;
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.6),
+        0 0 40px rgba(255,105,180,0.4);
+    animation: gift-pop 0.6s ease-out;
+}
+
+@keyframes gift-pop {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.gift-caption {
+    color: #ff69b4;
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-top: 10px;
+}
+
 
         /* Decorative elements */
         .decoration {
@@ -1140,8 +1171,10 @@
     <div class="love-note-popup" id="loveNotePopup">
         <div class="note-emoji" id="noteEmoji">💕</div>
         <p class="note-number" id="noteNumber">Reason #1</p>
-        <p class="note-text" id="noteText">Loading...</p>
-        <button class="close-note-btn" onclick="closeLoveNote()">More Love! 💖</button>
+        <img id="giftImage" src="gift.webp" alt="Gift for Momo" class="gift-image">
+        <p class="gift-caption">This is for you, Momo 💖</p>
+
+        <button class="close-note-btn" onclick="closeLoveNote()">Lesgooo! 💖</button>
     </div>
 
     <!-- Virtual Hug Animation - GIF VERSION -->
@@ -1365,23 +1398,16 @@
         let currentReasonIndex = 0;
 
         function openLoveNote() {
-            const popup = document.getElementById('loveNotePopup');
-            const overlay = document.getElementById('overlay');
-            const reason = loveReasons[currentReasonIndex];
-            
-            document.getElementById('noteEmoji').textContent = reason.emoji;
-            document.getElementById('noteText').textContent = reason.text;
-            document.getElementById('noteNumber').textContent = `Reason #${currentReasonIndex + 1} of ${loveReasons.length}`;
-            
-            overlay.classList.add('show');
-            popup.classList.add('show');
-            
-            currentReasonIndex = (currentReasonIndex + 1) % loveReasons.length;
-            
-            for (let i = 0; i < 20; i++) {
-                confettiParticles.push(new Confetti(true));
-            }
-        }
+    const popup = document.getElementById('loveNotePopup');
+    const overlay = document.getElementById('overlay');
+
+    overlay.classList.add('show');
+    popup.classList.add('show');
+
+    // Gift reveal confetti burst
+    burstConfetti();
+}
+
 
         function closeLoveNote() {
             const popup = document.getElementById('loveNotePopup');
